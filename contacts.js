@@ -2,7 +2,7 @@ import path from "node:path";
 import fs from "node:fs/promises";
 import crypto from "node:crypto";
 
-const contactsPath = path.resolve("db/contacts.json");
+const contactsPath = path.resolve("db", "contacts.json");
 
 async function listContacts() {
   // ...твій код. Повертає масив контактів.
@@ -18,7 +18,7 @@ async function getContactById(id) {
 
   const contact = data.find((contact) => contact.id === id);
 
-  if (typeof contact === null) {
+  if (contact === undefined) {
     return null;
   }
   return contact;
